@@ -1,4 +1,10 @@
-import tkinter as tk
+from tkinter import *
 
-Tk = tk()
+root = Tk()
 
+#Creating simple label to print Hello World
+mylabel = Label(root, text="Hello World")
+
+mylabel.pack()
+
+root.mainloop()
