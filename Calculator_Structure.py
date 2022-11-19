@@ -17,8 +17,11 @@ def button_add():
 def button_equal():
     currentnum = entry.get()
     entry.delete(0, END)
-    adddd = sum(total_list) + int(currentnum)
-    print(adddd)
+    entry.insert(0, sum(total_list) + int(currentnum))
+
+def clear():
+    entry.delete(0, END)
+    total_list.clear()
 
 result = 0
 total_list = list()
@@ -38,7 +41,7 @@ Button_9 = Button(root, text="9", padx="40px", pady="20px", command= lambda: but
 Button_0 = Button(root, text="0", padx="40px", pady="20px", command= lambda: button_click(0)).grid(row=4, column=0)
 Button_add = Button(root, text="+", padx="39px", pady="20px", command= button_add).grid(row=5, column=0)
 Button_equal = Button(root, text="=", padx="86px", pady="20px", command= button_equal).grid(row=5, column=1, columnspan=2)
-Button_clear = Button(root, text="Clear", padx="79px", pady="20px", command= lambda: button_click()).grid(row=4, column=1, columnspan=2)
+Button_clear = Button(root, text="Clear", padx="79px", pady="20px", command= clear).grid(row=4, column=1, columnspan=2)
 
 
 root.mainloop()
