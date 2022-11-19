@@ -3,11 +3,28 @@ from tkinter import *
 root = Tk()
 root.title("Simple Calculater")
 
+def button_click(number):
+    global last
+    current = entry.get()
+    entry.delete(0, END)
+    entry.insert(0, str(current) + str(number))
+
+def button_add():
+    last = entry.get()
+    total_list.append(int(last))
+    entry.delete(0, END)
+
+def button_equal():
+    currentnum = entry.get()
+    entry.delete(0, END)
+    adddd = sum(total_list) + int(currentnum)
+    print(adddd)
+
+result = 0
+total_list = list()
+
 entry = Entry(root, width=55, borderwidth=5)
 entry.grid(row=0, column=0, columnspan=3)
-
-def button_click(number):
-    entry.insert(0, number)
 
 Button_1 = Button(root, text="1", padx="40px", pady="20px", command= lambda: button_click(1)).grid(row=3, column=0)
 Button_2 = Button(root, text="2", padx="40px", pady="20px", command= lambda: button_click(2)).grid(row=3, column=1)
@@ -19,8 +36,8 @@ Button_7 = Button(root, text="7", padx="40px", pady="20px", command= lambda: but
 Button_8 = Button(root, text="8", padx="40px", pady="20px", command= lambda: button_click(8)).grid(row=1, column=1)
 Button_9 = Button(root, text="9", padx="40px", pady="20px", command= lambda: button_click(9)).grid(row=1, column=2)
 Button_0 = Button(root, text="0", padx="40px", pady="20px", command= lambda: button_click(0)).grid(row=4, column=0)
-Button_add = Button(root, text="+", padx="39px", pady="20px", command= lambda: button_click()).grid(row=5, column=0)
-Button_equal = Button(root, text="=", padx="86px", pady="20px", command= lambda: button_click()).grid(row=5, column=1, columnspan=2)
+Button_add = Button(root, text="+", padx="39px", pady="20px", command= button_add).grid(row=5, column=0)
+Button_equal = Button(root, text="=", padx="86px", pady="20px", command= button_equal).grid(row=5, column=1, columnspan=2)
 Button_clear = Button(root, text="Clear", padx="79px", pady="20px", command= lambda: button_click()).grid(row=4, column=1, columnspan=2)
 
 
