@@ -26,7 +26,7 @@ def clear():
 result = 0
 total_list = list()
 
-entry = Entry(root, width=55, borderwidth=5)
+entry = Entry(root, width=40, borderwidth=5, font=('Arial', 12))
 entry.grid(row=0, column=0, columnspan=3)
 
 Button_1 = Button(root, text="1", padx="40px", pady="20px", command= lambda: button_click(1)).grid(row=3, column=0)
@@ -42,6 +42,5 @@ Button_0 = Button(root, text="0", padx="40px", pady="20px", command= lambda: but
 Button_add = Button(root, text="+", padx="39px", pady="20px", command= button_add).grid(row=5, column=0)
 Button_equal = Button(root, text="=", padx="86px", pady="20px", command= button_equal).grid(row=5, column=1, columnspan=2)
 Button_clear = Button(root, text="Clear", padx="79px", pady="20px", command= clear).grid(row=4, column=1, columnspan=2)
-
 
 root.mainloop()
